@@ -1,0 +1,74 @@
+name: Bug report
+description: The cybrcrime/itop image does not work as documented
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This tracker is for the **container image** only. Bugs in iTop itself go to
+        [Combodo/iTop](https://github.com/Combodo/iTop/issues). Security vulnerabilities: use private reporting
+        (Security tab), not this form.
+  - type: input
+    id: image
+    attributes:
+      label: Image tag and digest
+      description: "Output of `docker image inspect cybrcrime/itop:<tag> --format '{{index .RepoDigests 0}}'`, or the tag you pull."
+      placeholder: "cybrcrime/itop:3.3.0-1 @ sha256:..."
+    validations:
+      required: true
+  - type: dropdown
+    id: runtime
+    attributes:
+      label: How do you run the image?
+      options:
+        - Docker / Docker Compose
+        - Kubernetes
+        - Podman
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: state
+    attributes:
+      label: iTop state
+      options:
+        - Fresh installation (setup wizard)
+        - Upgrade from a previous iTop / image version
+        - Running installation
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: Describe the problem and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Include relevant configuration (volume mounts, securityContext, environment variables) – without secrets.
+      placeholder: |
+        1. ...
+        2. ...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Output of `docker logs` / `kubectl logs`. Remove passwords, tokens and other secrets first.
+      render: shell
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I pulled the current tag again and the problem still occurs.
+          required: true
+        - label: This is a problem with the image, not with iTop itself.
+          required: true
+        - label: I removed all secrets from the text above.
+          required: true

@@ -1,0 +1,29 @@
+name: Feature request
+description: Suggest an improvement to the cybrcrime/itop image
+title: "[feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This tracker is for the **container image** only. Feature requests for iTop itself go to
+        [Combodo/iTop](https://github.com/Combodo/iTop/issues).
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do?
+      description: Describe the use case or problem – not only the solution you have in mind.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: For example an extra PHP extension or package, a configuration option, another tag variant.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives / workarounds
+      description: What do you do today, and why is it not enough?
